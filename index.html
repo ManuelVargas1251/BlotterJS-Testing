@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="js/blotter.min.js"></script>
+    <script src="js/ChannelSplitMaterial.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+    <script>
+        var text = new Blotter.Text("Manuel Vargas", {
+            family: "serif",
+            size: 120,
+            fill: "#171717"
+        });
+
+        var material = new Blotter.ChannelSplitMaterial();
+        var blotter = new Blotter(material, { texts: text });
+        var scope = blotter.forText(text);
+
+        scope.appendTo(document.body);
+    </script>
+</body>
+
+</html>
