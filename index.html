@@ -3,45 +3,50 @@
 <head>
     <script src="js/blotter/blotter.min.js"></script>
     <!-- <script src="js/blotter/materials/channelSplitMaterial.js"></script> -->
-    <script src="js/blotter/materials/liquidDistortMaterial.js"></script>
+    <script src="js/blotter/materials/fliesMaterial.js"></script>
     <script src="js/index.js"></script>
 </head>
 
-<div id="distortion-text"></div>
+<div id="blotter-text"></div>
 
 
 <script>
 
     // BLOTTER - Example 2
-    var text = new Blotter.Text("Manuel Vargas", {
-        family: "'EB Garamond', serif",
-        size: 90,
-        fill: "#1c1c1c",
-        paddingLeft: 40,
-        paddingRight: 40
-    });
+    var text = new Blotter
+        .Text(
+            "Manuel Vargas",
+            {
+                family: "'EB Garamond', serif",
+                size: 140,
+                fill: "#1c1c1c",
+                paddingLeft: 40,
+                paddingRight: 40
+            }
+        );
 
-    var material = new Blotter.LiquidDistortMaterial();
+    var material = new Blotter.FliesMaterial();
 
-    // Play with the value for uSpeed. Lower values slow
-    // down animation, while higher values speed it up. At
-    // a speed of 0.0, animation is stopped entirely.
-    //material.uniforms.uSpeed.value = 0.25;
+    // Speed
+    material.uniforms.uSpeed.value = 0.5;
 
-    // Try uncommenting the following line to play with
-    // the "volatility" of the effect. Higher values here will
-    // produce more dramatic changes in the appearance of your
-    // text as it animates, but you will likely want to keep
-    // the value below 1.0.
-    material.uniforms.uVolatility.value = 0.15;
+    //
+    material.uniforms.uPointCellWidth.value = 0.028;
+
+    //
+    material.uniforms.uPointRadius.value = 0.6;
+
+    // volatility
+    //material.uniforms.uVolatility.value = 0.15;
 
     var blotter = new Blotter(material, {
         texts: text
     });
 
-    var elem = document.getElementById("distortion-text");
+    var elem = document.getElementById("blotter-text");
     var scope = blotter.forText(text);
 
     scope.appendTo(elem);
 </script>
+
 </html>
