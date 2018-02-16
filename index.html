@@ -1,52 +1,55 @@
+<!DOCTYPE HTML5>
 <html>
 
 <head>
     <script src="js/blotter/blotter.min.js"></script>
-    <!-- <script src="js/blotter/materials/channelSplitMaterial.js"></script> -->
-    <script src="js/blotter/materials/fliesMaterial.js"></script>
+    <script src="js/blotter/materials/channelSplitMaterial.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <div id="blotter-text"></div>
 
-
 <script>
 
-    // BLOTTER - Example 2
-    var text = new Blotter
-        .Text(
-            "Manuel Vargas",
-            {
-                family: "'EB Garamond', serif",
-                size: 140,
-                fill: "#1c1c1c",
-                paddingLeft: 40,
-                paddingRight: 40
-            }
-        );
+    
 
-    var material = new Blotter.FliesMaterial();
+// BLOTTER - Example 2
+let text = new Blotter
+    .Text(
+        "Manuel",
+        {
+            family: "'EB Garamond', serif",
+            size: 300,
+            fill: "#f9f9f9",
+            paddingLeft: 10,
+            paddingRight: 10
+        }
+    );
 
-    // Speed
-    material.uniforms.uSpeed.value = 0.5;
+let material = new Blotter.ChannelSplitMaterial();
 
-    //
-    material.uniforms.uPointCellWidth.value = 0.028;
+// speed
+//material.uniforms.uSpeed.value = 0.5;
 
-    //
-    material.uniforms.uPointRadius.value = 0.6;
+// cell width
+//material.uniforms.uPointCellWidth.value = 0.028;
 
-    // volatility
-    //material.uniforms.uVolatility.value = 0.15;
+//  point radius
+//material.uniforms.uPointRadius.value = 0.6;
 
-    var blotter = new Blotter(material, {
-        texts: text
-    });
+// volatility
+//material.uniforms.uVolatility.value = 0.15;
 
-    var elem = document.getElementById("blotter-text");
-    var scope = blotter.forText(text);
+let blotter = new Blotter(material, {
+    texts: text
+});
 
-    scope.appendTo(elem);
+let elem = $("#blotter-text");
+let scope = blotter.forText(text);
+
+scope.appendTo(elem);
 </script>
 
 </html>

@@ -1,0 +1,12 @@
+html{
+    background-color: #1c1c1c;
+}
+
+#blotter-text{
+    width: 50%;
+    margin: 0 auto;
+}
+
+canvas {
+    display: inline;
+ }
